@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оформлення замовлення</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <h1 class="page__title">Оформлення замовлення</h1>
+
+    <div class="layout">
+      <form class="form" action="#" method="get">
+
+        <fieldset class="group">
+          <legend class="group__title">Контактні дані</legend>
+
+          <div class="field">
+            <label class="field__label" for="full-name">Ім’я та прізвище</label>
+            <input class="field__control" type="text" id="full-name" name="full-name"
+                   required minlength="3" autocomplete="name" placeholder="Іван Петренко"
+                   aria-describedby="full-name-hint">
+            <p class="field__hint" id="full-name-hint">Мінімум 3 символи.</p>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="field__label" for="email">Email</label>
+              <input class="field__control" type="email" id="email" name="email"
+                     required autocomplete="email" placeholder="name@example.com"
+                     aria-describedby="email-hint">
+              <p class="field__hint" id="email-hint">Введіть коректну адресу, напр. name@example.com.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="phone">Телефон</label>
+              <input class="field__control" type="tel" id="phone" name="phone"
+                     required pattern="\+380[0-9]{9}" autocomplete="tel" placeholder="+380501234567"
+                     aria-describedby="phone-hint">
+              <p class="field__hint" id="phone-hint">Формат: +380XXXXXXXXX.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend class="group__title">Спосіб доставки</legend>
+
+          <div class="radios">
+            <div class="radio">
+              <input type="radio" id="delivery-np" name="delivery" value="nova-poshta" required checked>
+              <label for="delivery-np">Нова пошта (відділення) — 70 ₴</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="delivery-up" name="delivery" value="ukrposhta">
+              <label for="delivery-up">Укрпошта — 50 ₴</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="delivery-courier" name="delivery" value="courier">
+              <label for="delivery-courier">Кур’єр за адресою — 120 ₴</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="address">Місто та адреса / відділення</label>
+            <input class="field__control" type="text" id="address" name="address"
+                   required minlength="5" autocomplete="street-address" placeholder="Київ, відділення №12"
+                   aria-describedby="address-hint">
+            <p class="field__hint" id="address-hint">Вкажіть місто та адресу або номер відділення.</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="group">
+          <legend class="group__title">Платіжні реквізити</legend>
+
+          <div class="field">
+            <label class="field__label" for="card">Номер картки</label>
+            <input class="field__control" type="text" id="card" name="card" required
+                   inputmode="numeric" pattern="[0-9]{4} ?[0-9]{4} ?[0-9]{4} ?[0-9]{4}"
+                   autocomplete="cc-number" placeholder="1234 5678 9012 3456"
+                   aria-describedby="card-hint">
+            <p class="field__hint" id="card-hint">16 цифр, можна з пробілами.</p>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label class="field__label" for="expiry">Термін дії</label>
+              <input class="field__control" type="text" id="expiry" name="expiry" required
+                     pattern="(0[1-9]|1[0-2])/[0-9]{2}" autocomplete="cc-exp" placeholder="MM/РР"
+                     aria-describedby="expiry-hint">
+              <p class="field__hint" id="expiry-hint">Формат: MM/РР.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="cvv">CVV</label>
+              <input class="field__control" type="password" id="cvv" name="cvv" required
+                     inputmode="numeric" pattern="[0-9]{3}" maxlength="3"
+                     autocomplete="cc-csc" placeholder="•••" aria-describedby="cvv-hint">
+              <p class="field__hint" id="cvv-hint">3 цифри на звороті картки.</p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button class="btn btn--secondary" type="reset">Очистити</button>
+          <button class="btn btn--primary" type="submit">Підтвердити замовлення</button>
+        </div>
+      </form>
+
+      <aside class="summary">
+        <figure class="product">
+          <svg class="product__img" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <rect width="300" height="200" fill="#e0e7ff"/>
+            <rect x="60" y="45" width="180" height="110" rx="10" fill="#4f46e5"/>
+            <rect x="72" y="57" width="156" height="86" rx="4" fill="#c7d2fe"/>
+            <rect x="40" y="155" width="220" height="12" rx="6" fill="#312e81"/>
+          </svg>
+          <figcaption class="product__caption">Ноутбук UltraBook 14″, 16 ГБ / 512 ГБ</figcaption>
+        </figure>
+
+        <table class="table">
+          <caption class="table__caption">Підсумок замовлення</caption>
+          <thead>
+            <tr><th scope="col">Товар</th><th scope="col">К-сть</th><th scope="col">Сума</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">UltraBook 14″</th><td>1</td><td>29 990 ₴</td></tr>
+            <tr><th scope="row">Чохол для ноутбука</th><td>1</td><td>650 ₴</td></tr>
+            <tr><th scope="row">Доставка</th><td>1</td><td>70 ₴</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><th scope="row" colspan="2">Разом</th><td>30 710 ₴</td></tr>
+          </tfoot>
+        </table>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
